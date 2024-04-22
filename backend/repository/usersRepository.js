@@ -5,12 +5,13 @@ Update database parameters below using environment variables
 */
 
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  password: 'password123',
-  port: 5432,
+ user: process.env.DB_USER,
+ host: process.env.DB_HOST,
+ database: process.env.DB_DATABASE,
+ password: process.env.DB_PASSWORD,
+ port: 5432,
 });
+
 
 const findAll = async () => {
   const result = await pool.query('SELECT * FROM users_table');
